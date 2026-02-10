@@ -8,19 +8,32 @@ import edu.wpi.first.math.geometry.Translation3d;
 import edu.wpi.first.math.util.Units;
 import swervelib.math.Matter;
 
-public final class Constants {
+public final class Constants 
+{
 	public static final double ROBOT_MASS = 50;
 	public static final Matter CHASSIS = new Matter(new Translation3d(0, 0, Units.inchesToMeters(8)), ROBOT_MASS);
 	public static final double LOOP_TIME = 0.13; // s, 20ms + 110ms sprk max velocity lag
 	public static final double MAX_SPEED = 4.5;
 	// Maximum speed of the robot in meters per second, used to limit acceleration.
 
-	public static final class DrivebaseConstants {
+	public static final int SECONDS_IN_MINUTE = 60;
+
+	public static final int SHOOTER_MOTOR_ID = 0;
+	public static final int SHOOTER_CURRENT_LIMIT = 100;
+	public static final double SHOOTER_P = 0; 
+	public static final double SHOOTER_I = 0;
+	public static final double SHOOTER_D = 0;
+	public static final double SHOOTER_WHEEL_RADIUS = 1;
+	public static final double SHOOTER_WHEEL_PERIMETER = 2 * Math.PI * SHOOTER_WHEEL_RADIUS;
+
+	public static final class DrivebaseConstants
+	{
 		// Hold time on motor brakes when disabled
 		public static final double WHEEL_LOCK_TIME = 10; // seconds
 	}
 
-	public static class OperatorConstants {
+	public static class OperatorConstants
+	{
 		// Joystick Deadband
 		public static final double DEADBAND = 0.1;
 		public static final double LEFT_Y_DEADBAND = 0.1;
