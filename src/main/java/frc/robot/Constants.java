@@ -17,7 +17,6 @@ public final class Constants {
     public static final int kDriverControllerPort = 0;
   }
   public static final int REVOLVER_MOTOR_ID = 0;
-  public static final int MOTOR_VOLTAGE = 0;
   public static final int REVOLVER_MOTOR_CURRENT_LIMIT = 50;
   public static final double REVOLVER_P = 0;
 	public static final double REVOLVER_I = 0;

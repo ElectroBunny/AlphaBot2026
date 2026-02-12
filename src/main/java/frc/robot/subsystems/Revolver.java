@@ -24,7 +24,7 @@ public class Revolver extends SubsystemBase
 {
   private SparkFlex motor;
   private SparkFlexConfig motorConfig;
-  private Revolver instance = null;
+  private static Revolver instance = null;
   private RelativeEncoder motorEncoder;
   private SparkClosedLoopController closedLoopController;
 
@@ -58,7 +58,7 @@ public class Revolver extends SubsystemBase
     motor.stopMotor();
   }
 
-  public Revolver getInstance()
+  public static Revolver getInstance()
   {
     if (instance==null)
     {
