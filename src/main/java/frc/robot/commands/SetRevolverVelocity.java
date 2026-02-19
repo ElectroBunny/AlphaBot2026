@@ -7,12 +7,12 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.Revolver;
 
-public class MoveRevolverByVelocity extends Command 
+public class SetRevolverVelocity extends Command 
 {
   private Revolver revolver;
   private double velocity;
 
-  public MoveRevolverByVelocity(double vel) {
+  public SetRevolverVelocity(double vel) {
     this.revolver = Revolver.getInstance();
     this.velocity = vel;
 

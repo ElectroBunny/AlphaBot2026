@@ -21,5 +21,7 @@ public final class Constants {
   public static final double REVOLVER_P = 0;
 	public static final double REVOLVER_I = 0;
 	public static final double REVOLVER_D = 0;
+  public static final double REVOLVER_POWER = 0;
+  public static final double REVOLVER_VELOCITY = 0;
 
 }
