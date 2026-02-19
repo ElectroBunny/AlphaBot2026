@@ -34,7 +34,7 @@ public class Climber extends SubsystemBase
   private static double defaultPose = 0;
   
   /** Creates a new Climber. */
-  public Climber() 
+  private Climber() 
   {
     motor = new SparkFlex(Constants.CLIMBER_MOTOR_ID, MotorType.kBrushless);
 
@@ -43,7 +43,7 @@ public class Climber extends SubsystemBase
     motorConfig = new SparkFlexConfig();
 
     motorConfig.idleMode(IdleMode.kCoast);
-		motorConfig.smartCurrentLimit(Constants.CLIMBER_CURRENT_LIMIT);
+	motorConfig.smartCurrentLimit(Constants.CLIMBER_CURRENT_LIMIT);
 
 		// motorConfig.encoder
 				// .positionConversionFactor(
@@ -71,26 +71,26 @@ public class Climber extends SubsystemBase
 		defaultPose = 0;
 	}
 
-  public void moveClimberToPose(double point) 
+  public void moveClimberToPose(double setpoint) 
   {
-		closedLoopController.setReference(point, ControlType.kMAXMotionPositionControl,
+		closedLoopController.setReference(setpoint, ControlType.kMAXMotionPositionControl,
 				ClosedLoopSlot.kSlot0);
-	}
+  }
 
   public void stop()
   {
-		motor.stopMotor();
-	}
+	motor.stopMotor();
+  }
 
 	public void setPower(double power) 
   {
-		motor.setVoltage(power * 12);
+		motor.set(power);
 	}
 
   public boolean isInPoint(double point) 
   {
-		return (Math.abs(encoder.getPosition() - point) <= Constants.CLIMBER_POSITION_TOLERANCE);
-	}
+	return (Math.abs(encoder.getPosition() - point) <= Constants.CLIMBER_POSITION_TOLERANCE);
+  }
 
 	public double getPose()
   {
