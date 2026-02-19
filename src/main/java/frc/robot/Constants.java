@@ -28,4 +28,10 @@ public final class Constants {
 		public static final double TURN_CONSTANT = 6;
 		public static final int kDriverControllerPort = 0;
 	}
+
+	public static final int INTAKE_MOTOR_ID = 0;
+	public static final int INTAKE_P = 0;
+	public static final int INTAKE_I = 0;
+	public static final int INTAKE_D = 0;
+	  public static final int INTAKE_MOTOR_CURRENT_LIMIT = 50;
 }
