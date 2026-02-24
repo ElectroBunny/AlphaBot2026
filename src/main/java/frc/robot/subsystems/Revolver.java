@@ -17,6 +17,7 @@ import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 import com.revrobotics.spark.config.SparkFlexConfig;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -24,7 +25,7 @@ public class Revolver extends SubsystemBase
 {
   private SparkFlex motor;
   private SparkFlexConfig motorConfig;
-  private Revolver instance = null;
+  private static Revolver instance = null;
   private RelativeEncoder motorEncoder;
   private SparkClosedLoopController closedLoopController;
 
@@ -58,7 +59,7 @@ public class Revolver extends SubsystemBase
     motor.stopMotor();
   }
 
-  public Revolver getInstance()
+  public static Revolver getInstance()
   {
     if (instance==null)
     {
@@ -79,6 +80,7 @@ public class Revolver extends SubsystemBase
 
   @Override
   public void periodic() {
-    // This method will be called once per scheduler run
+		SmartDashboard.putNumber("revolverCurrent", motor.getOutputCurrent());
+    SmartDashboard.putNumber("revolverVelocity", motorEncoder.getVelocity());
   }
 }
