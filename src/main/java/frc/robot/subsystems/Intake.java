@@ -28,23 +28,23 @@ public class Intake extends SubsystemBase {
   private SparkClosedLoopController closedLoopController;
 
   /** Creates a new Intake. */
-  public Intake() {
+  public Intake() 
+  {
     motor = new SparkFlex(Constants.INTAKE_MOTOR_ID, MotorType.kBrushless);
     motorConfig = new SparkFlexConfig();
     motorEncoder = motor.getEncoder();
 
-     		closedLoopController = motor.getClosedLoopController();
+    closedLoopController = motor.getClosedLoopController();
 
     motorConfig.idleMode(IdleMode.kBrake);
-		motorConfig.smartCurrentLimit(Constants.INTAKE_MOTOR_CURRENT_LIMIT);
-		motor.configure(motorConfig, ResetMode.kResetSafeParameters, PersistMode.kNoPersistParameters);
-    		motorConfig.closedLoop
-				.feedbackSensor(FeedbackSensor.kPrimaryEncoder)
-				.p(Constants.INTAKE_P)
-				.i(Constants.INTAKE_I)
-				.d(Constants.INTAKE_D)
-				.outputRange(-1, 1);
-
+    motorConfig.smartCurrentLimit(Constants.INTAKE_MOTOR_CURRENT_LIMIT);
+    motor.configure(motorConfig, ResetMode.kResetSafeParameters, PersistMode.kNoPersistParameters);
+    motorConfig.closedLoop
+        .feedbackSensor(FeedbackSensor.kPrimaryEncoder)
+        .p(Constants.INTAKE_P)
+        .i(Constants.INTAKE_I)
+        .d(Constants.INTAKE_D)
+        .outputRange(-1, 1);
 
   }
 
@@ -52,31 +52,35 @@ public class Intake extends SubsystemBase {
   {
     motor.set(voltage);
   }
-   public void stop()
+
+  public void stop() 
   {
     motor.stopMotor();
   }
-  public static Intake getInstance()
+
+  public static Intake getInstance() 
   {
-          if (instance==null)
-    {
+    if (instance == null) {
       instance = new Intake();
     }
     return instance;
 
   }
 
-    public double getvelocity()
+  public double getvelocity() 
   {
     return this.motorEncoder.getVelocity();
   }
-   public void setVelocity(double velocity)
+
+  public void setVelocity(double velocity) 
   {
     closedLoopController.setSetpoint(velocity, ControlType.kVelocity, ClosedLoopSlot.kSlot0);
   }
+
   @Override
-  public void periodic() {
-    	SmartDashboard.putNumber("intakeCurrent", motor.getOutputCurrent());
+  public void periodic() 
+  {
+    SmartDashboard.putNumber("intakeCurrent", motor.getOutputCurrent());
     SmartDashboard.putNumber("intakeVelocity", motorEncoder.getVelocity());
   }
 }
