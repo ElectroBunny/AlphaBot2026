@@ -33,5 +33,11 @@ public final class Constants {
 	public static final int INTAKE_P = 0;
 	public static final int INTAKE_I = 0;
 	public static final int INTAKE_D = 0;
-	  public static final int INTAKE_MOTOR_CURRENT_LIMIT = 50;
+	public static final int INTAKE_MOTOR_CURRENT_LIMIT = 50;
+	public static final double 	FUEL_CONTAINER_P = 0;
+	public static final double 	FUEL_CONTAINER_I = 0;
+	public static final double 	FUEL_CONTAINER_D = 0;
+	public static final int FuelContainer_MOTOR_CURRENT_LIMIT = 5;
+	public static final int FuelContainer_MOTOR_ID = 0;
+
 }
