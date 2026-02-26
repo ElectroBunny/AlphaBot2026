@@ -5,6 +5,15 @@
 package frc.robot;
 
 import frc.robot.Constants.OperatorConstants;
+import frc.robot.commands.Autos;
+import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.SetRevolverVelocity;
+import frc.robot.commands.MoveRevolverManually;
+import frc.robot.subsystems.ExampleSubsystem;
+import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.button.CommandPS5Controller;
+import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Filesystem;
@@ -12,7 +21,6 @@ import edu.wpi.first.wpilibj.RobotBase;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
-import edu.wpi.first.wpilibj2.command.button.CommandPS5Controller;
 import frc.robot.subsystems.swervedrive.SwerveSubsystem;
 import java.io.File;
 import java.util.function.DoubleSupplier;
@@ -85,11 +93,11 @@ public class RobotContainer {
 		drivebase.setMotorBrake(brake);
 	}
 
-  /**
-	 * Use this to pass the autonomous command to the main {@link Robot} class.
-	 *
-	 * @return the command to run in autonomous
-	 */
+  private void configureBindings() {
+    operatorController.L2().whileTrue(new MoveRevolverManually(Constants.REVOLVER_POWER));
+    operatorController.L1().toggleOnTrue(new SetRevolverVelocity(Constants.REVOLVER_VELOCITY));
+  }
+
 	public Command getAutonomousCommand() {
 		// An example command will be run in autonomous
 		return m_chooser.getSelected();
