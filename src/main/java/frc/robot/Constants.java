@@ -15,6 +15,14 @@ public final class Constants {
 	public static final double MAX_SPEED = 4.5;
 	// Maximum speed of the robot in meters per second, used to limit acceleration.
 
+	public static final int CLIMBER_MOTOR_ID = 0;
+	public static final double CLIMBER_P = 0;
+	public static final double CLIMBER_I = 0;
+	public static final double CLIMBER_D = 0;
+	public static final int CLIMBER_CURRENT_LIMIT = 50;
+	public static final double CLIMBER_POSITION_TOLERANCE = 0;
+
+
 	public static final class DrivebaseConstants {
 		// Hold time on motor brakes when disabled
 		public static final double WHEEL_LOCK_TIME = 10; // seconds

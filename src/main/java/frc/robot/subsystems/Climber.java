@@ -11,18 +11,112 @@ import com.revrobotics.spark.config.SparkFlexConfig;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
+import com.revrobotics.PersistMode;
+import com.revrobotics.ResetMode;
+import com.revrobotics.spark.ClosedLoopSlot;
+import com.revrobotics.spark.FeedbackSensor;
+import com.revrobotics.spark.SparkBase.ControlType;
+import com.revrobotics.spark.SparkLowLevel.MotorType;
+import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
+
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.Constants;
+
 public class Climber extends SubsystemBase
 {
-    private SparkFlex motor;
-    private SparkFlexConfig Config;
-    private SparkClosedLoopController closedLoopController;
-    private RelativeEncoder encoder;
+  private static Climber instance = null;
 
-    public Climber()
+  private SparkFlex motor;
+  private SparkFlexConfig motorConfig;
+  private SparkClosedLoopController closedLoopController;
+  private RelativeEncoder encoder;
+
+  private static double defaultPose = 0;
+  
+  /** Creates a new Climber. */
+  private Climber() 
+  {
+    motor = new SparkFlex(Constants.CLIMBER_MOTOR_ID, MotorType.kBrushless);
+
+    closedLoopController = motor.getClosedLoopController();
+    
+    motorConfig = new SparkFlexConfig();
+
+    motorConfig.idleMode(IdleMode.kCoast);
+	  motorConfig.smartCurrentLimit(Constants.CLIMBER_CURRENT_LIMIT);
+
+		motorConfig.closedLoop
+				.feedbackSensor(FeedbackSensor.kPrimaryEncoder)
+				.p(Constants.CLIMBER_P)
+				.i(Constants.CLIMBER_I)
+				.d(Constants.CLIMBER_D);
+
+		motorConfig.closedLoop.maxMotion
+				.allowedClosedLoopError(Constants.CLIMBER_POSITION_TOLERANCE);
+
+		motor.configure(motorConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+
+		encoder = motor.getEncoder();
+  }
+
+  public void resetPosition() 
+  {
+		encoder.setPosition(0);
+		defaultPose = 0;
+	}
+
+  public void moveClimberToPose(double setpoint) 
+  {
+		closedLoopController.setSetpoint(setpoint, ControlType.kMAXMotionPositionControl, ClosedLoopSlot.kSlot0);
+  }
+
+  public void stop()
+  {
+	motor.stopMotor();
+  }
+
+	public void setPower(double power) 
+  {
+		motor.set(power);
+	}
+
+  public boolean isInPoint(double point) 
+  {
+	return (Math.abs(encoder.getPosition() - point) <= Constants.CLIMBER_POSITION_TOLERANCE);
+  }
+
+	public double getPose()
+  {
+		return encoder.getPosition();
+	}
+
+	public void setDefaultPose(double pose)
+  {
+		defaultPose = pose;
+	}
+	
+	public static double getDefaultPose()
+  {
+		return defaultPose;
+	}
+
+	public static Climber getInstance() 
+  {
+		if (instance == null) 
     {
-        motor = new SparkFlex(ClimerConstants.MOTOR_ID, MotorType.kBrushless);
-        closedLoopController = motor.getClosedLoopController();
-        encoder = motor.get;
-    }
+			instance = new Climber();
+		}
+		
+    return instance;
+	}
 
+  @Override
+  public void periodic()
+  {
+    // This method will be called once per scheduler run
+
+    SmartDashboard.putNumber("climberPose", encoder.getPosition());
+		SmartDashboard.putNumber("climberSpeed", encoder.getVelocity());
+		SmartDashboard.putNumber("climberCurrent", motor.getOutputCurrent());
+  }
 }
