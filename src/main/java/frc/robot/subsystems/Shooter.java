@@ -142,6 +142,11 @@ public class Shooter extends SubsystemBase
     return Constants.SHOOTER_DEFAULT_VELOCITY; // Replace with actual implementation.
   }
 
+  public boolean isInVelocity(double velocity) 
+  {
+	return (Math.abs(encoder.getVelocity() - velocity) <= Constants.SHOOTER_VELOCITY_TOLERANCE);
+  }
+
   /**
    * Returns the singleton instance of the Shooter subsystem, creating it if
    * necessary.

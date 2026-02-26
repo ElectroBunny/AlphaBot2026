@@ -42,6 +42,7 @@ public final class Constants
 	public static final double SHOOTER_WHEEL_RADIUS = 1;
 	public static final double SHOOTER_WHEEL_PERIMETER = 2 * Math.PI * SHOOTER_WHEEL_RADIUS;
 	public static final double SHOOTER_DEFAULT_VELOCITY = 0.0; // In RPM
+	public static final double SHOOTER_VELOCITY_TOLERANCE = 50; // RPM, tolerance for considering the shooter "at speed"
 
 	// Revolver Susbsystem
 	public static final int REVOLVER_MOTOR_ID = 0;
