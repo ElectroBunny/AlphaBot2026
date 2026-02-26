@@ -24,7 +24,7 @@ public final class Constants
 		public static final double WHEEL_LOCK_TIME = 10; // seconds
 	}
 
-	public static class OperatorConstants
+	public static class OperatorConstants 
 	{
 		// Joystick Deadband
 		public static final double DEADBAND = 0.1;
@@ -42,4 +42,13 @@ public final class Constants
 	public static final double SHOOTER_WHEEL_RADIUS = 1;
 	public static final double SHOOTER_WHEEL_PERIMETER = 2 * Math.PI * SHOOTER_WHEEL_RADIUS;
 	public static final double SHOOTER_DEFAULT_VELOCITY = 0.0; // In RPM
+
+	// Revolver Susbsystem
+	public static final int REVOLVER_MOTOR_ID = 0;
+	public static final int REVOLVER_MOTOR_CURRENT_LIMIT = 50;
+	public static final double REVOLVER_P = 0;
+	public static final double REVOLVER_I = 0;
+	public static final double REVOLVER_D = 0;
+	public static final double REVOLVER_POWER = 0;
+	public static final double REVOLVER_VELOCITY = 0;
 }
