@@ -92,6 +92,11 @@ public class Shooter extends SubsystemBase
     this.motor.set(power);
   }
 
+  public void stop()
+  {
+    this.motor.stopMotor();
+  }
+
   /**
    * Returns the linear tangential velocity of the shooter wheel.
    *
@@ -128,6 +133,13 @@ public class Shooter extends SubsystemBase
   public void setVelocity(double vel)
   {
     closedLoopController.setSetpoint(vel, ControlType.kVelocity, ClosedLoopSlot.kSlot0);
+  }
+
+  public double getVelocityByDistance(double distance)
+  {
+    // Placeholder for a method that calculates the required velocity based on distance.
+    // This would likely involve some physics calculations or a lookup table.
+    return Constants.SHOOTER_DEFAULT_VELOCITY; // Replace with actual implementation.
   }
 
   /**

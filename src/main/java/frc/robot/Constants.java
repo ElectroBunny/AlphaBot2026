@@ -18,14 +18,6 @@ public final class Constants
 
 	public static final int SECONDS_IN_MINUTE = 60;
 
-	public static final int SHOOTER_MOTOR_ID = 0;
-	public static final int SHOOTER_CURRENT_LIMIT = 100;
-	public static final double SHOOTER_P = 0; 
-	public static final double SHOOTER_I = 0;
-	public static final double SHOOTER_D = 0;
-	public static final double SHOOTER_WHEEL_RADIUS = 1;
-	public static final double SHOOTER_WHEEL_PERIMETER = 2 * Math.PI * SHOOTER_WHEEL_RADIUS;
-
 	public static final class DrivebaseConstants
 	{
 		// Hold time on motor brakes when disabled
@@ -41,4 +33,13 @@ public final class Constants
 		public static final double TURN_CONSTANT = 6;
 		public static final int kDriverControllerPort = 0;
 	}
+
+	public static final int SHOOTER_MOTOR_ID = 0;
+	public static final int SHOOTER_CURRENT_LIMIT = 100;
+	public static final double SHOOTER_P = 0; 
+	public static final double SHOOTER_I = 0;
+	public static final double SHOOTER_D = 0;
+	public static final double SHOOTER_WHEEL_RADIUS = 1;
+	public static final double SHOOTER_WHEEL_PERIMETER = 2 * Math.PI * SHOOTER_WHEEL_RADIUS;
+	public static final double SHOOTER_DEFAULT_VELOCITY = 0.0; // In RPM
 }
