@@ -11,17 +11,19 @@ public class MoveShooterByDistance extends Command
 {
   private Shooter shooter;
   private double distance;
+  private double velocity;
   
   public MoveShooterByDistance(double distance) {
     this.distance = distance;
     this.shooter = Shooter.getInstance();
+    this.velocity = shooter.getVelocityByDistance(distance);
     addRequirements(shooter);
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    shooter.setVelocity(shooter.getVelocityByDistance(distance));
+    shooter.setVelocity(velocity);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -37,6 +39,6 @@ public class MoveShooterByDistance extends Command
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return shooter.isInVelocity(velocity);
   }
 }

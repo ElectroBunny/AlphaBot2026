@@ -78,6 +78,11 @@ public class Revolver extends SubsystemBase
     closedLoopController.setSetpoint(velocity, ControlType.kVelocity, ClosedLoopSlot.kSlot0);
   }
 
+  public boolean isInVelocity(double velocity)
+  {
+    return (Math.abs(motorEncoder.getVelocity() - velocity) <= Constants.REVOLVER_VELOCITY_TOLERANCE);
+  }
+
   @Override
   public void periodic() {
 		SmartDashboard.putNumber("revolverCurrent", motor.getOutputCurrent());

@@ -69,6 +69,7 @@ public final class Constants
 	public static final double REVOLVER_D = 0;
 	public static final double REVOLVER_POWER = 0;
 	public static final double REVOLVER_VELOCITY = 0;
+	public static final double REVOLVER_VELOCITY_TOLERANCE = 50; // RPM, tolerance for considering the revolver "at speed"
 
 	// Climber subsystem
 	public static final int CLIMBER_MOTOR_ID = 0;
