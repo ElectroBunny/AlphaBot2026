@@ -30,8 +30,6 @@ public class Climber extends SubsystemBase
   private SparkFlexConfig motorConfig;
   private SparkClosedLoopController closedLoopController;
   private RelativeEncoder encoder;
-
-  private static double defaultPose = 0;
   
   /** Creates a new Climber. */
   private Climber() 
@@ -62,7 +60,6 @@ public class Climber extends SubsystemBase
   public void resetPosition() 
   {
 		encoder.setPosition(0);
-		defaultPose = 0;
 	}
 
   public void moveClimberToPose(double setpoint) 
@@ -88,16 +85,6 @@ public class Climber extends SubsystemBase
 	public double getPose()
   {
 		return encoder.getPosition();
-	}
-
-	public void setDefaultPose(double pose)
-  {
-		defaultPose = pose;
-	}
-	
-	public static double getDefaultPose()
-  {
-		return defaultPose;
 	}
 
 	public static Climber getInstance() 

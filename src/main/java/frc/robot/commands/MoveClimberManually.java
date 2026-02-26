@@ -7,22 +7,21 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.Climber;
 
-/* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
 public class MoveClimberManually extends Command {
   private static Climber climber;
   private double power;
 
-
-  /** Creates a new MoveClimberManualy. */
-  public MoveClimberManually(double power) { 
-    this.power=power;
-    climber= Climber.getInstance();
+  public MoveClimberManually(double power) 
+  { 
+    this.power = power;
+    climber = Climber.getInstance();
     addRequirements(climber);
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {
+  public void initialize() 
+  {
     climber.setPower(this.power);
 
   }
@@ -33,7 +32,8 @@ public class MoveClimberManually extends Command {
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {
+  public void end(boolean interrupted) 
+  {
     climber.stop();
   }
 
