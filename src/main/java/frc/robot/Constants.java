@@ -16,7 +16,10 @@ public final class Constants
 	public static final double MAX_SPEED = 4.5;
 	// Maximum speed of the robot in meters per second, used to limit acceleration.
 
-	public static final class DrivebaseConstants {
+	public static final int SECONDS_IN_MINUTE = 60;
+
+	public static final class DrivebaseConstants
+	{
 		// Hold time on motor brakes when disabled
 		public static final double WHEEL_LOCK_TIME = 10; // seconds
 	}
@@ -30,6 +33,15 @@ public final class Constants
 		public static final double TURN_CONSTANT = 6;
 		public static final int kDriverControllerPort = 0;
 	}
+
+	public static final int SHOOTER_MOTOR_ID = 0;
+	public static final int SHOOTER_CURRENT_LIMIT = 100;
+	public static final double SHOOTER_P = 0; 
+	public static final double SHOOTER_I = 0;
+	public static final double SHOOTER_D = 0;
+	public static final double SHOOTER_WHEEL_RADIUS = 1;
+	public static final double SHOOTER_WHEEL_PERIMETER = 2 * Math.PI * SHOOTER_WHEEL_RADIUS;
+	public static final double SHOOTER_DEFAULT_VELOCITY = 0.0; // In RPM
 
 	// Revolver Susbsystem
 	public static final int REVOLVER_MOTOR_ID = 0;
