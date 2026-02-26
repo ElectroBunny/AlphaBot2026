@@ -51,4 +51,11 @@ public final class Constants
 	public static final double REVOLVER_D = 0;
 	public static final double REVOLVER_POWER = 0;
 	public static final double REVOLVER_VELOCITY = 0;
+
+	public static final int CLIMBER_MOTOR_ID = 0;
+	public static final double CLIMBER_P = 0;
+	public static final double CLIMBER_I = 0;
+	public static final double CLIMBER_D = 0;
+	public static final int CLIMBER_CURRENT_LIMIT = 50;
+	public static final double CLIMBER_POSITION_TOLERANCE = 0;
 }
