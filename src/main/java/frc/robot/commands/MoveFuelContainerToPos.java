@@ -35,6 +35,6 @@ public class MoveFuelContainerToPos extends Command
 
   @Override
   public boolean isFinished() {
-    return false;
+    return fuelContainer.isInPoint(this.pose);
   }
 }

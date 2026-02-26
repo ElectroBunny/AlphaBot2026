@@ -63,6 +63,11 @@ public class FuelContainer extends SubsystemBase {
     closedLoopController.setSetpoint(position, ControlType.kPosition, ClosedLoopSlot.kSlot0);
   }
 
+  public boolean isInPoint(double point) 
+  {
+	return (Math.abs(motorEncoder.getPosition() - point) <= Constants.FUEL_CONTAINER_TOLERANCE);
+  }
+
   public static FuelContainer getInstance()
   {
     if (instance == null)
