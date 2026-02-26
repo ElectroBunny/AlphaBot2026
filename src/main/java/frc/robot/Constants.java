@@ -41,6 +41,8 @@ public final class Constants
 	public static final int INTAKE_D = 0;
 	public static final int INTAKE_MOTOR_CURRENT_LIMIT = 50;
 	public static final double INTAKE_TOLERANCE = 0.0;
+	public static final double INTAKE_POWER = 0;
+	public static final double INTAKE_ROLLER_VELOCITY = 0;
 
 	// Fuel container subsystem
 	public static final double FUEL_CONTAINER_P = 0;
@@ -49,6 +51,9 @@ public final class Constants
 	public static final int FuelContainer_MOTOR_CURRENT_LIMIT = 5;
 	public static final int FuelContainer_MOTOR_ID = 0;
 	public static final double FUEL_CONTAINER_TOLERANCE = 0.0;
+	public static final double FUEL_CONTAINER_POWER = 0;
+	public static final double FUEL_CONTAINER_OPENED_POSE = 0;
+	public static final double FUEL_CONTAINER_CLOSED_POSE = 0;
 
 	// Shooter subsystem
 	public static final int SHOOTER_MOTOR_ID = 0;
@@ -60,6 +65,7 @@ public final class Constants
 	public static final double SHOOTER_WHEEL_PERIMETER = 2 * Math.PI * SHOOTER_WHEEL_RADIUS;
 	public static final double SHOOTER_DEFAULT_VELOCITY = 0.0; // In RPM
 	public static final double SHOOTER_VELOCITY_TOLERANCE = 50; // RPM, tolerance for considering the shooter "at speed"
+	public static final double SHOOTER_POWER = 0;
 
 	// Revolver Susbsystem
 	public static final int REVOLVER_MOTOR_ID = 0;
@@ -78,4 +84,7 @@ public final class Constants
 	public static final double CLIMBER_D = 0;
 	public static final int CLIMBER_CURRENT_LIMIT = 50;
 	public static final double CLIMBER_POSITION_TOLERANCE = 0;
+    public static final double CLIMBER_OPENED_HEIGHT = 0;
+    public static final double CLIMBER_CLOSED_HEIGHT = 0;
+	public static final int CLIMBER_POWER = 0;
 }
