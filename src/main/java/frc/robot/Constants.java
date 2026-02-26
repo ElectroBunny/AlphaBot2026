@@ -34,6 +34,23 @@ public final class Constants
 		public static final int kDriverControllerPort = 0;
 	}
 
+	// Intake roller subsystem
+	public static final int INTAKE_MOTOR_ID = 0;
+	public static final int INTAKE_P = 0;
+	public static final int INTAKE_I = 0;
+	public static final int INTAKE_D = 0;
+	public static final int INTAKE_MOTOR_CURRENT_LIMIT = 50;
+	public static final double INTAKE_TOLERANCE = 0.0;
+
+	// Fuel container subsystem
+	public static final double FUEL_CONTAINER_P = 0;
+	public static final double FUEL_CONTAINER_I = 0;
+	public static final double FUEL_CONTAINER_D = 0;
+	public static final int FuelContainer_MOTOR_CURRENT_LIMIT = 5;
+	public static final int FuelContainer_MOTOR_ID = 0;
+	public static final double FUEL_CONTAINER_TOLERANCE = 0.0;
+
+	// Shooter subsystem
 	public static final int SHOOTER_MOTOR_ID = 0;
 	public static final int SHOOTER_CURRENT_LIMIT = 100;
 	public static final double SHOOTER_P = 0; 
@@ -52,6 +69,7 @@ public final class Constants
 	public static final double REVOLVER_POWER = 0;
 	public static final double REVOLVER_VELOCITY = 0;
 
+	// Climber subsystem
 	public static final int CLIMBER_MOTOR_ID = 0;
 	public static final double CLIMBER_P = 0;
 	public static final double CLIMBER_I = 0;
